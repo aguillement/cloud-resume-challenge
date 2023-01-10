@@ -18,3 +18,12 @@ menu:
     post: <span class='alert'>New!</span>
     url: /posts/
     weight: -100
+
+deployment:
+  targets:
+    - name: "test-deploy"
+      url: "s3://cloud-resume-challenge-aguillement-hugo?region=eu-west-1"
+  matchers:
+    - pattern: "^.+\\.(js|css|svg|ttf)$"
+      cacheControl: "max-age=31536000, no-transform, public"
+      gzip: true
