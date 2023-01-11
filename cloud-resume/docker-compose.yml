@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  server:
+    image: klakegg/hugo:0.101.0
+    command: server -d --bind localhost --baseURL http://localhost:1313 -p 8000
+    volumes:
+      - ".:/src"
+    ports:
+      - "8000:8000"
