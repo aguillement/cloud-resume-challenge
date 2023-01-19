@@ -83,5 +83,5 @@ jobs:
       - name: Hugo deploy
         working-directory: ./cloud-resume
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        run: hugo deploy --maxDeletes -1 --invalidateCDN --confirm
+        run: hugo deploy --maxDeletes -1 --invalidateCDN --force
 
