@@ -5,7 +5,7 @@ resource "aws_route53_zone" "primary" {
 resource "aws_route53_record" "www" {
   zone_id = aws_route53_zone.primary.zone_id
   name    = "adrienguillement.fr"
-  type    = "A"
+  type    = "CNAME"
   
   alias {
     name                   = aws_cloudfront_distribution.s3_distribution.domain_name
