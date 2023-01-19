@@ -77,9 +77,11 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         uses: peaceiris/actions-hugo@v2
       - name: Build hugo
+        working-directory: ./cloud-resume
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: hugo --minify
       - name: Hugo deploy
+        working-directory: ./cloud-resume
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: hugo deploy --maxDeletes -1 --invalidateCDN --confirm
 
