@@ -5,6 +5,14 @@ terraform {
      version = "4.8.0"
    }
  }
+
+ cloud {
+   organization = "aguillement"
+
+   workspaces {
+     name = "cloud-resume-challenge-gh-actions"
+   }
+ }
 }
 
 provider "aws" {
