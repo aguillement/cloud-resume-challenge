@@ -66,3 +66,20 @@ jobs:
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: terraform apply -auto-approve -input=false
+      - name: Configure AWS credentials
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Setup Hugo
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        uses: peaceiris/actions-hugo@v2
+      - name: Build hugo
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        run: hugo --minify
+      - name: Hugo deploy
+        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        run: hugo deploy --maxDeletes -1 --invalidateCDN --confirm
+
