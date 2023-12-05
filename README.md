@@ -1,5 +1,8 @@
 # cloud-resume-challenge
 cloud-resume-challenge
 
-
-k
+Using terraform to deploy on AWS:
+ - S3
+ - cloudfront
+ - acm
+ - route53

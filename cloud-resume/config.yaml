@@ -21,8 +21,9 @@ menu:
 
 deployment:
   targets:
-    - name: "test-deploy"
-      url: "s3://cloud-resume-challenge-aguillement-hugo?region=eu-west-1"
+    - name: "S3"
+      url: "s3://s3-website-test.terraform.aguillement.com?region=eu-west-1"
+      cloudFrontDistributionID: "E2W93717FJT2KB"
   matchers:
     - pattern: "^.+\\.(js|css|svg|ttf)$"
       cacheControl: "max-age=31536000, no-transform, public"
